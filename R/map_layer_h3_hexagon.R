@@ -33,7 +33,7 @@ mapdeckH3JSDependency <- function() {
 #' @param lat column containing latitude values
 #' @param polyline column of \code{data} containing the polylines
 #' @param radius in metres. Default 1000
-#' @param elevation_scale value to sacle the elevations of the hexagons. Default 1
+#' @param elevation_scale value to scale the elevations of the hexagons. Default 1
 #' @param colour_range vector of 6 hex colours
 #' @param elevation column containing the elevation of the value.
 #' @param elevation_function one of 'min', 'mean', 'max', 'sum'.
@@ -87,6 +87,7 @@ add_h3_hexagon <- function(
 	elevation = NULL,
 	tooltip = NULL,
 	auto_highlight = FALSE,
+	elevation_scale = 1,
 	highlight_colour = "#AAFFFFFF",
 	light_settings = list(),
 	layer_id = NULL,
@@ -113,9 +114,6 @@ add_h3_hexagon <- function(
 	l[["tooltip"]] <- force( tooltip )
 	l[["id"]] <- force( id )
 	l[["na_colour"]] <- force( na_colour )
-
-	legend <- force( legend )
-	legend <- aggregation_legend( legend, legend_options )
 
 	l <- resolve_palette( l, palette )
 	l <- resolve_legend( l, legend )
@@ -176,8 +174,8 @@ add_h3_hexagon <- function(
 
 	invoke_method(
 		map, jsfunc, map_type( map ), shape[["data"]], layer_id, light_settings,
-		auto_highlight, highlight_colour, shape[["legend"]], js_transitions,
-		is_extruded
+		elevation_scale, auto_highlight, highlight_colour, shape[["legend"]],
+		js_transitions, is_extruded
 	)
 }
 

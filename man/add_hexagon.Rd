@@ -61,7 +61,7 @@ If supplied it specifies how the colour values are calculated. Defaults to sum.}
 
 \item{legend_options}{A list of options for controlling the legend.}
 
-\item{elevation_scale}{value to sacle the elevations of the hexagons. Default 1}
+\item{elevation_scale}{value to scale the elevations of the hexagons. Default 1}
 
 \item{auto_highlight}{logical indicating if the shape under the mouse should auto-highlight}
 

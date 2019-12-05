@@ -81,7 +81,7 @@ palette for different colour options (where available),
 
 \item{radius}{in metres. Default 1000}
 
-\item{elevation_scale}{value to sacle the elevations of the hexagons. Default 1}
+\item{elevation_scale}{value to scale the elevations of the hexagons. Default 1}
 
 \item{colour_range}{vector of 6 hex colours}
 
