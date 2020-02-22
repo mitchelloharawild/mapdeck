@@ -15,7 +15,8 @@ mapdeck(
   zoom = 0,
   bearing = 0,
   location = c(0, 0),
-  libraries = NULL
+  libraries = NULL,
+  show_view_state = FALSE
 )
 }
 \arguments{
@@ -44,6 +45,20 @@ If left empty layers will still be plotted, but without a Mapbox map.}
 
 \item{libraries}{additional libraries required by some layers. Currently
 'h3-js' is required for \link{add_h3_hexagon}.}
+
+\item{show_view_state}{logical, indicating whether to add the current View State to the map.
+When \code{TRUE}, the following is added as an overlay to the map
+\itemize{
+  \item{width}
+  \item{height}
+  \item{latitude & longitude}
+  \item{zoom}
+  \item{bearing}
+  \item{pitch}
+  \item{altitude}
+  \item{viewBounds}
+  \item{interactionState}
+}}
 }
 \description{
 mapdeck

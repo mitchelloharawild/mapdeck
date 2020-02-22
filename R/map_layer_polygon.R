@@ -31,6 +31,7 @@ mapdeckPolygonDependency <- function() {
 #' @param light_settings list of light setting parameters. See \link{light_settings}
 #' @param elevation the height the polygon extrudes from the map. Only available if neither
 #' \code{stroke_colour} or \code{stroke_width} are supplied. Default 0
+#' @param elevation_scale elevation multiplier.
 #'
 #' @section data:
 #'
@@ -120,6 +121,7 @@ add_polygon <- function(
 	elevation = NULL,
 	tooltip = NULL,
 	auto_highlight = FALSE,
+	elevation_scale = 1,
 	highlight_colour = "#AAFFFFFF",
 	light_settings = list(),
 	layer_id = NULL,
@@ -132,7 +134,8 @@ add_polygon <- function(
 	update_view = TRUE,
 	focus_layer = FALSE,
 	digits = 6,
-	transitions = NULL
+	transitions = NULL,
+	brush_radius = NULL
 ) {
 
 	#if( is.null( stroke_colour )) stroke_colour <- fill_colour
@@ -157,6 +160,7 @@ add_polygon <- function(
 	bbox <- init_bbox()
 	update_view <- force( update_view )
 	focus_layer <- force( focus_layer )
+	elevation_scale <- force( elevation_scale )
 
 	is_extruded <- TRUE
 	if( !is.null( l[["stroke_width"]] ) | !is.null( l[["stroke_colour"]] ) ) {
@@ -215,7 +219,7 @@ add_polygon <- function(
 	invoke_method(
 		map, jsfunc, map_type( map ), shape[["data"]], layer_id, light_settings,
 		auto_highlight, highlight_colour, shape[["legend"]], bbox, update_view, focus_layer,
-		js_transitions, is_extruded
+		js_transitions, is_extruded, elevation_scale, brush_radius
 		)
 }
 

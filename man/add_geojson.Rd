@@ -17,6 +17,7 @@ add_geojson(
   fill_opacity = NULL,
   radius = NULL,
   elevation = NULL,
+  extruded = FALSE,
   light_settings = list(),
   legend = F,
   legend_options = NULL,
@@ -64,6 +65,9 @@ to conflict and not plot correctly}
 \item{radius}{radius of points in meters. Default 1. See details}
 
 \item{elevation}{elevation of polygons. Default 0. See details}
+
+\item{extruded}{logical indicating if polygons should extrude from the map.
+If \code{TRUE}, \code{stroke_colour} for polygons is ignored}
 
 \item{light_settings}{list of light setting parameters. See \link{light_settings}}
 

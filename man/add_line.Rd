@@ -25,7 +25,8 @@ add_line(
   update_view = TRUE,
   focus_layer = FALSE,
   digits = 6,
-  transitions = NULL
+  transitions = NULL,
+  brush_radius = NULL
 )
 }
 \arguments{
@@ -79,6 +80,10 @@ a named list indicating which colour attributes should be included in the legend
 \item{focus_layer}{logical indicating if the map should update the bounds to only include this layer}
 
 \item{transitions}{list specifying the duration of transitions.}
+
+\item{brush_radius}{radius of the brush in metres. Default NULL. If supplied,
+the arcs will only show if the origin or destination are within the radius of the mouse.
+If NULL, all arcs are displayed}
 }
 \description{
 The Line Layer renders raised lines joining pairs of source and target coordinates

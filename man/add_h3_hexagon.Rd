@@ -16,6 +16,7 @@ add_h3_hexagon(
   elevation = NULL,
   tooltip = NULL,
   auto_highlight = FALSE,
+  elevation_scale = 1,
   highlight_colour = "#AAFFFFFF",
   light_settings = list(),
   layer_id = NULL,
@@ -44,6 +45,8 @@ EPSG:4326 (WGS 84) coordinate system}
 \item{tooltip}{variable of \code{data} containing text or HTML to render as a tooltip}
 
 \item{auto_highlight}{logical indicating if the shape under the mouse should auto-highlight}
+
+\item{elevation_scale}{value to scale the elevations of the hexagons. Default 1}
 
 \item{highlight_colour}{hex string colour to use for highlighting. Must contain the alpha component.}
 
@@ -80,8 +83,6 @@ palette for different colour options (where available),
 \item{polyline}{column of \code{data} containing the polylines}
 
 \item{radius}{in metres. Default 1000}
-
-\item{elevation_scale}{value to scale the elevations of the hexagons. Default 1}
 
 \item{colour_range}{vector of 6 hex colours}
 

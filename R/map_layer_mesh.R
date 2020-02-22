@@ -32,6 +32,20 @@ find_mesh_index <- function( data ) {
 #' @inheritSection add_arc legend
 #' @inheritSection add_arc id
 #'
+#' @examples
+#'
+#' x <- structure(list(vb = structure(c(0, 0, 0, 1, 100, 0, 0, 1, 0,
+#' -42, 0, 1), .Dim = 4:3), it = structure(1:3, .Dim = c(3L, 1L)),
+#' material = list(), normals = NULL, texcoords = NULL, meshColor = "vertices"),
+#'  class = c("mesh3d", "shape3d"))
+#'
+#' set_token("MAPBOX_API_TOKEN")
+#'
+#' mapdeck() %>%
+#'   add_mesh(
+#' 	  data = x
+#'   )
+#'
 #' @details
 #'
 #' \code{add_mesh} supports quadmesh objects
@@ -56,7 +70,8 @@ add_mesh <- function(
 	update_view = TRUE,
 	focus_layer = FALSE,
 	digits = 6,
-	transitions = NULL
+	transitions = NULL,
+	brush_radius = NULL
 ) {
 
 	#if( is.null( stroke_colour )) stroke_colour <- fill_colour
@@ -67,9 +82,9 @@ add_mesh <- function(
 	}
 
 	l <- list()
-	# fill_colour = "average_z"
+	fill_colour = "average_z"
 	# fill_colour = "z"
-	# l[["fill_colour"]] <- force( fill_colour )
+	l[["fill_colour"]] <- force( fill_colour )
 	l[["fill_opacity"]] <- resolve_opacity( fill_opacity )
 	l[["elevation"]] <- force( elevation )
 	l[["tooltip"]] <- force( tooltip )
@@ -157,7 +172,7 @@ add_mesh <- function(
 	invoke_method(
 		map, jsfunc, map_type( map ), shape[["data"]], layer_id, light_settings,
 		auto_highlight, highlight_colour, shape[["legend"]], bbox, update_view, focus_layer,
-		js_transitions, is_extruded
+		js_transitions, is_extruded, brush_radius
 	)
 }
 
